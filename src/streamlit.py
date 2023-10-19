@@ -15,6 +15,7 @@ st.set_page_config(
 )
 
 st.title("ScholarScout🐦‍⬛ retrieves relevant research from SCOPUS")
+st.caption("Please consider starring ⭐ the [repo](https://github.com/voidcuriousity/scholarscout), if you find it useful")
 
 api_key = st.text_input("Enter API key. If you don't have one, you can get [here](https://dev.elsevier.com/api_key_settings.html)", "API_KEY")
 user_input = st.text_input(
@@ -39,3 +40,4 @@ if submit_button:
         "text/csv",
         key="download-csv",
     )
+
