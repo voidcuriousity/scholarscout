@@ -1,7 +1,6 @@
 
 import streamlit as st  # 🎈 data web app development
 import scopuscaller as sc
-import time
 
 @st.cache_data
 def convert_df(df):
@@ -63,10 +62,10 @@ st.markdown("- The ability to retrieve abstracts from SCOPUS depends on the API 
 st.markdown("__4. How to Properly Acknowledge ScholarScout🐦‍⬛?__")
 st.markdown("- If you found ScholarScout🐦‍⬛ useful, we would greatly appreciate it if you could cite or attribute it in your work. For details on attributing parent repositories, please check the [pypi package](https://pypi.org/project/scopus-caller/) for details.")
 
-st.markdown("__4. The application runs for an extended period without producing any results?__")
+st.markdown("__5. The application runs for an extended period without producing any results?__")
 st.markdown("- This typically happens when your search keywords are too broad, resulting in a large number of articles to be retrieved. To address this, consider adding more specific keywords to fine-tune your search. Unless your keywords are already quite niche, using 3-4 keywords is often a good practice.")
 
-st.markdown("__5. Encountering Issues?__")
+st.markdown("__6. Encountering Issues?__")
 st.markdown("- We sincerely apologize for any inconvenience you may have experienced. As ScholarScout🐦‍⬛ is still in its early stages of development, we are actively monitoring and addressing issues on an ongoing basis. Your feedback is highly valuable in helping us improve the service. If you encounter any issues or have suggestions, please feel free to open an issue on [GitHub](https://github.com/voidcuriousity/scholarscout). ")
 
 st.markdown('''
