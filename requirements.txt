@@ -1,1 +1,1 @@
-scopus-caller
+scopus-caller==0.1.4

@@ -22,7 +22,7 @@ user_input = st.text_input(
     "Enter two or more keywords separated by comma. e.g., transfer learning,transportation. __NO SPACE before or after comma__."
 )
 year = st.text_input(
-    "The publication year to filter the articles. Default is __2023__.", 2023
+    "The default year up to which articles will be searched. Default is __2023__.", 2023
 )
 user_input = user_input.split(",")
 
