@@ -37,7 +37,7 @@ st.markdown("__2. How do i get SCOPUS API?__")
 st.markdown("- If you haven't already created a SCOPUS account, please visit the SCOPUS platform and create a private account, or use your university credentials. Once logged in, you can create a new API key by following these steps. Provide a label of your choice, and you can leave the website input field empty as it is not essential. Before using the API and accessing data, it's crucial to carefully review and understand the \"API SERVICE AGREEMENT\" and \"Text and Data Mining (TDM) Provisions,\" which will be presented to you during the API key generation process. Make sure to copy your API key for later use.")
 
 st.markdown("__3. Why does it Utilize the Semantic Scholar Database?__")
-st.markdown("The ability to retrieve abstracts from SCOPUS depends on the API level. In our experience, abstracts are generally not accessible via SCOPUS. As a result, we leverage the Semantic Scholar database to obtain article abstracts.")
+st.markdown("- The ability to retrieve abstracts from SCOPUS depends on the API level. In our experience, abstracts are generally not accessible via SCOPUS. As a result, we leverage the Semantic Scholar database to obtain article abstracts.")
 
 st.markdown("__4. How to Properly Acknowledge ScholarScout🐦‍⬛?__")
 st.markdown("- If you found ScholarScout🐦‍⬛ useful, we would greatly appreciate it if you could cite or attribute it in your work. For details on attributing parent repositories, please check the [pypi package](https://pypi.org/project/scopus-caller/) for details.")
