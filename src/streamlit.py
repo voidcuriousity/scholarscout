@@ -1,7 +1,7 @@
 
 import streamlit as st  # 🎈 data web app development
 import scopuscaller as sc
-
+import time
 
 @st.cache_data
 def convert_df(df):
@@ -19,7 +19,7 @@ st.caption("Please consider starring ⭐ the [repo](https://github.com/voidcurio
 
 api_key = st.text_input("Enter API key. If you don't have one, you can get [here](https://dev.elsevier.com/api_key_settings.html)", "API_KEY")
 user_input = st.text_input(
-    "Enter two or more keywords separated by comma. e.g., transfer learning,transportation. __NO SPACE before or after comma__."
+    "Enter two or more keywords separated by comma. __NO SPACE before or after comma__ . Unless your keywords are already quite niche, using 3-4 keywords is often a good practice. e.g., vulnerable users,transportation,road safety"
 )
 year = st.text_input(
     "The default year up to which articles will be searched. Default is __2023__.", 2023
@@ -30,8 +30,16 @@ with st.form(key="my_form_to_submit"):
     submit_button = st.form_submit_button(label="Submit")
     
 if submit_button:
+    progress_text = "Operation in progress. Please wait."
+    my_bar = st.progress(0, text=progress_text)
+    
     df = sc.get_titles(api_key, user_input, year)
+    my_bar.progress(25, text=progress_text)
+    
     df = sc.get_abstracts(df)
+    my_bar.progress(100, text=progress_text)
+    
+    my_bar.empty()
     csv = convert_df(df)
     st.download_button(
         "Press to Download",
@@ -56,8 +64,7 @@ st.markdown("__4. How to Properly Acknowledge ScholarScout🐦‍⬛?__")
 st.markdown("- If you found ScholarScout🐦‍⬛ useful, we would greatly appreciate it if you could cite or attribute it in your work. For details on attributing parent repositories, please check the [pypi package](https://pypi.org/project/scopus-caller/) for details.")
 
 st.markdown("__4. The application runs for an extended period without producing any results?__")
-st.markdown("- This typically occurs when the search keywords are too broad, resulting in a large number of articles to be retrieved. Consider adding additional keywords to refine your search.")
-
+st.markdown("- This typically happens when your search keywords are too broad, resulting in a large number of articles to be retrieved. To address this, consider adding more specific keywords to fine-tune your search. Unless your keywords are already quite niche, using 3-4 keywords is often a good practice.")
 
 st.markdown("__5. Encountering Issues?__")
 st.markdown("- We sincerely apologize for any inconvenience you may have experienced. As ScholarScout🐦‍⬛ is still in its early stages of development, we are actively monitoring and addressing issues on an ongoing basis. Your feedback is highly valuable in helping us improve the service. If you encounter any issues or have suggestions, please feel free to open an issue on [GitHub](https://github.com/voidcuriousity/scholarscout). ")
