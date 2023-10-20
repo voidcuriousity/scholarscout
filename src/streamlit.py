@@ -29,6 +29,19 @@ user_input = user_input.split(",")
 with st.form(key="my_form_to_submit"):
     submit_button = st.form_submit_button(label="Submit")
     
+if submit_button:
+    df = sc.get_titles(api_key, user_input, year)
+    df = sc.get_abstracts(df)
+    csv = convert_df(df)
+    st.download_button(
+        "Press to Download",
+        csv,
+        "_".join(user_input) + ".csv",
+        "text/csv",
+        key="download-csv",
+    )
+
+
 st.subheader("FAQs")
 st.markdown("__1. What is SCOPUS API?__")
 st.markdown("- The SCOPUS API enables users to query its extensive database for articles based on specific keywords. To access this API, users need to create an account on SCOPUS, either through their university or personally, and generate an API key. The API specifications can be found at this [link](https://dev.elsevier.com/api_key_settings.html). By utilizing this API, users can retrieve information such as the title, authors, affiliations, DOIs, and more from scientific articles. Additionally, depending on the article's access level and authorized API, it is also possible to obtain the article's abstract text.")
@@ -42,6 +55,10 @@ st.markdown("- The ability to retrieve abstracts from SCOPUS depends on the API 
 st.markdown("__4. How to Properly Acknowledge ScholarScout🐦‍⬛?__")
 st.markdown("- If you found ScholarScout🐦‍⬛ useful, we would greatly appreciate it if you could cite or attribute it in your work. For details on attributing parent repositories, please check the [pypi package](https://pypi.org/project/scopus-caller/) for details.")
 
+st.markdown("__4. The application runs for an extended period without producing any results?__")
+st.markdown("- This typically occurs when the search keywords are too broad, resulting in a large number of articles to be retrieved. Consider adding additional keywords to refine your search.")
+
+
 st.markdown("__5. Encountering Issues?__")
 st.markdown("- We sincerely apologize for any inconvenience you may have experienced. As ScholarScout🐦‍⬛ is still in its early stages of development, we are actively monitoring and addressing issues on an ongoing basis. Your feedback is highly valuable in helping us improve the service. If you encounter any issues or have suggestions, please feel free to open an issue on [GitHub](https://github.com/voidcuriousity/scholarscout). ")
 
@@ -52,17 +69,3 @@ st.markdown('''
 }
 </style>
 ''', unsafe_allow_html=True)
-
-
-if submit_button:
-    df = sc.get_titles(api_key, user_input, year)
-    df = sc.get_abstracts(df)
-    csv = convert_df(df)
-    st.download_button(
-        "Press to Download",
-        csv,
-        "_".join(user_input) + ".csv",
-        "text/csv",
-        key="download-csv",
-    )
-
