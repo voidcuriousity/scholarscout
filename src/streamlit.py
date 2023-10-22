@@ -10,7 +10,7 @@ def convert_df(df):
 st.set_page_config(
     page_title="ScholarScout 🐦‍⬛",
     page_icon="✅",
-    layout="wide",
+    # layout="wide",
 )
 
 st.title("ScholarScout🐦‍⬛ retrieves relevant research from SCOPUS")
