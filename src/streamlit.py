@@ -32,23 +32,25 @@ if submit_button:
     progress_text = "Operation in progress. Please wait."
     my_bar = st.progress(0, text=progress_text)
     
-    df = sc.get_titles(api_key, user_input, year)
-    my_bar.progress(25, text=progress_text)
-    
-    df = sc.get_abstracts(df)
-    my_bar.progress(100, text=progress_text)
-    
-    my_bar.empty()
-    csv = convert_df(df)
-    st.download_button(
-        "Press to Download",
-        csv,
-        "_".join(user_input) + ".csv",
-        "text/csv",
-        key="download-csv",
-    )
+    try:
+        df = sc.get_titles(api_key, user_input, year)
+        my_bar.progress(25, text=progress_text)
+        df = sc.get_abstracts(df)
+        my_bar.progress(100, text=progress_text)
+        
+        my_bar.empty()
+        csv = convert_df(df)
+        st.download_button(
+            "Press to Download",
+            csv,
+            "_".join(user_input) + ".csv",
+            "text/csv",
+            key="download-csv",
+        )
 
-
+    except Exception as KeyError:
+        st.error('There seems to be something wrong. Check your API', icon="🚨")
+        
 st.subheader("FAQs")
 st.markdown("__1. What is SCOPUS API?__")
 st.markdown("- The SCOPUS API enables users to query its extensive database for articles based on specific keywords. To access this API, users need to create an account on SCOPUS, either through their university or personally, and generate an API key. The API specifications can be found at this [link](https://dev.elsevier.com/api_key_settings.html). By utilizing this API, users can retrieve information such as the title, authors, affiliations, DOIs, and more from scientific articles. Additionally, depending on the article's access level and authorized API, it is also possible to obtain the article's abstract text.")
