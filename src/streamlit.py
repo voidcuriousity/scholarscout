@@ -49,8 +49,8 @@ if submit_button:
         )
 
     except Exception as KeyError:
-        st.error('There seems to be something wrong. Check your API', icon="🚨")
-        
+        st.error('There seems to be something wrong. Check your API and keywords', icon="🚨")
+
 st.subheader("FAQs")
 st.markdown("__1. What is SCOPUS API?__")
 st.markdown("- The SCOPUS API enables users to query its extensive database for articles based on specific keywords. To access this API, users need to create an account on SCOPUS, either through their university or personally, and generate an API key. The API specifications can be found at this [link](https://dev.elsevier.com/api_key_settings.html). By utilizing this API, users can retrieve information such as the title, authors, affiliations, DOIs, and more from scientific articles. Additionally, depending on the article's access level and authorized API, it is also possible to obtain the article's abstract text.")
