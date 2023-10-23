@@ -18,7 +18,7 @@ st.caption("Please consider starring ⭐ the [repo](https://github.com/voidcurio
 
 api_key = st.text_input("Enter API key. If you don't have one, you can get [here](https://dev.elsevier.com/api_key_settings.html)", "API_KEY")
 user_input = st.text_input(
-    "Enter two or more keywords separated by comma. __NO SPACE before or after comma__ . Unless your keywords are already quite niche, using 3-4 keywords is often a good practice. e.g., vulnerable users,transportation,road safety"
+    "Enter two or more keywords separated by comma. __NO SPACE before or after comma__ . Unless your keywords are already quite niche, using 3-4 keywords is often a good practice. e.g., vulnerable users,transportation,road safety. The search will look for both keywords, since keywords are joined by 'AND'"
 )
 year = st.text_input(
     "The default year up to which articles will be searched. Default is __2023__.", 2023
@@ -61,14 +61,18 @@ st.markdown("- If you haven't already created a SCOPUS account, please visit the
 st.markdown("__3. Why does it Utilize the Semantic Scholar Database?__")
 st.markdown("- The ability to retrieve abstracts from SCOPUS depends on the API level. In our experience, abstracts are generally not accessible via SCOPUS. As a result, we leverage the Semantic Scholar database to obtain article abstracts.")
 
-st.markdown("__4. How to Properly Acknowledge ScholarScout🐦‍⬛?__")
-st.markdown("- If you found ScholarScout🐦‍⬛ useful, we would greatly appreciate it if you could cite or attribute it in your work. For details on attributing parent repositories, please check the [pypi package](https://pypi.org/project/scopus-caller/) for details.")
-
-st.markdown("__5. The application runs for an extended period without producing any results?__")
+st.markdown("__4. The application runs for an extended period without producing any results?__")
 st.markdown("- This typically happens when your search keywords are too broad, resulting in a large number of articles to be retrieved. To address this, consider adding more specific keywords to fine-tune your search. Unless your keywords are already quite niche, using 3-4 keywords is often a good practice.")
+
+st.markdown("__5. Are there other attributes that can influence the results, and how can I modify them?__")
+st.markdown("- Absolutely, several attributes have the potential to impact the outcomes. For instance, the way keywords are combined, either through the use of 'AND' or 'OR,' can yield different results. You can find a comprehensive list of such attributes in [Scopus documentation](https://dev.elsevier.com/documentation/SCOPUSSearchAPI.wadl). Currently, we have kept the application user-friendly and straightforward without customization options. However, we are actively exploring the possibility of introducing these features in the future. If you require tailored searches right now, we recommend cloning the [scopus_caller GitHub repository](https://github.com/vishalmhjn/scopus_caller/) and adapting the source code to meet your specific needs.")
 
 st.markdown("__6. Encountering Issues?__")
 st.markdown("- We sincerely apologize for any inconvenience you may have experienced. As ScholarScout🐦‍⬛ is still in its early stages of development, we are actively monitoring and addressing issues on an ongoing basis. Your feedback is highly valuable in helping us improve the service. If you encounter any issues or have suggestions, please feel free to open an issue on [GitHub](https://github.com/voidcuriousity/scholarscout). ")
+
+st.markdown("__7. How to Properly Acknowledge ScholarScout🐦‍⬛?__")
+st.markdown("- If you found ScholarScout🐦‍⬛ useful, we would greatly appreciate it if you could cite or attribute it in your work. For details on attributing parent repositories, please check the [pypi package](https://pypi.org/project/scopus-caller/) for details.")
+
 
 st.markdown('''
 <style>
