@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 st.title("ScholarScout🐦‍⬛ retrieves relevant research from SCOPUS")
-st.caption("Please consider starring ⭐ the [repo](https://github.com/voidcuriousity/scholarscout), if you find it useful")
+st.caption("Please consider ⭐-ing the [repo](http://github.com/vishalmhjn/scopus_caller), if you find it useful")
 
 api_key = st.text_input("Enter API key. If you don't have one, you can get [here](https://dev.elsevier.com/api_key_settings.html)", "API_KEY")
 user_input = st.text_input(
@@ -56,7 +56,7 @@ st.markdown("__1. What is SCOPUS API?__")
 st.markdown("- The SCOPUS API enables users to query its extensive database for articles based on specific keywords. To access this API, users need to create an account on SCOPUS, either through their university or personally, and generate an API key. The API specifications can be found at this [link](https://dev.elsevier.com/api_key_settings.html). By utilizing this API, users can retrieve information such as the title, authors, affiliations, DOIs, and more from scientific articles. Additionally, depending on the article's access level and authorized API, it is also possible to obtain the article's abstract text.")
 
 st.markdown("__2. How do i get SCOPUS API?__")
-st.markdown("- If you haven't already created a SCOPUS account, please visit the SCOPUS platform and create a private account, or use your university credentials. Once logged in, you can create a new API key by following these steps. Provide a label of your choice, and you can leave the website input field empty as it is not essential. Before using the API and accessing data, it's crucial to carefully review and understand the \"API SERVICE AGREEMENT\" and \"Text and Data Mining (TDM) Provisions,\" which will be presented to you during the API key generation process. Make sure to copy your API key for later use.")
+st.markdown("- If you haven't already created a SCOPUS account, please visit the [SCOPUS platform](https://dev.elsevier.com/apikey/manage) and create a private account, or use your university credentials. Once logged in, you can create a new API key by following these steps. Provide a label of your choice, and you can leave the website input field empty as it is not essential. Before using the API and accessing data, it's crucial to carefully review and understand the \"API SERVICE AGREEMENT\" and \"Text and Data Mining (TDM) Provisions,\" which will be presented to you during the API key generation process. Make sure to copy your API key for later use.")
 
 st.markdown("__3. Why does it Utilize the Semantic Scholar Database?__")
 st.markdown("- The ability to retrieve abstracts from SCOPUS depends on the API level. In our experience, abstracts are generally not accessible via SCOPUS. As a result, we leverage the Semantic Scholar database to obtain article abstracts.")
